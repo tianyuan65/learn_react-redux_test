@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 // 引入store用于获取redux中保存的状态
 import store from '../../redux/store'
+// 引入actionCreators，专门用于创建action对象
+import {createIncrementAction,createDecrementAction} from '../../redux/count_action'
 
 export default class Count extends Component {
     // 初始化状态里标识求和的值，属性名为count，其值为0
@@ -18,26 +20,26 @@ export default class Count extends Component {
     // 加法
     increment=()=>{
         const {value}=this.selectNumber
-        store.dispatch({type:'increment',data:value*1})
+        store.dispatch(createIncrementAction(value*1))
     }
     // 减法
     decrement=()=>{
       const {value}=this.selectNumber
-      store.dispatch({type:'decrement',data:value*1})
+      store.dispatch(createDecrementAction(value*1))
     }
     // 当前求和为奇数时加
     incrementIfOdd=()=>{
         const {value}=this.selectNumber
         const count=store.getState()
         if(count %2 !== 0){
-          store.dispatch({type:'increment',data:value*1})
+          store.dispatch(createIncrementAction(value*1))
         }
     }
     // 异步加
     incrementIfAsync=()=>{
         const {value}=this.selectNumber
         setTimeout(()=>{
-          store.dispatch({type:'increment',data:value*1})
+          store.dispatch(createIncrementAction(value*1))
         },500)
     }
 
