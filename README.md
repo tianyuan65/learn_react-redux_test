@@ -36,8 +36,9 @@
     * 容器组件：负责和redux通信，将结果交给UI组件
 * 2. 如何创建一个容器组件————靠react-redux的connect函数
     * connect(mapStateToProps,mapDispacthToProps)(UI)组件
-        * -mapStateToProps：映射状态，返回值是一个对象
-        * -mapDispacthToProps：映射操作状态的方法，返回值是一个对象
-* 3. 备注：容器组件中的store是靠props传递进UI组件里的，而不是在容器组件中直接引入
+        * mapStateToProps：映射状态，返回值是一个对象
+        * mapDispacthToProps：映射操作状态的方法，返回值是一个对象
+* 3. 备注1：容器组件中的store是靠props传递进UI组件里的，而不是在容器组件中直接引入
+* 4. 备注2：mapDispacthToProps，也可以是一个对象，是对象时简写；是函数时就是一般写法
 
 ## 五、

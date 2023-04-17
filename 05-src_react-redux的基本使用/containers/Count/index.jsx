@@ -25,7 +25,7 @@ function mapStateToProps(state) {
     3. mapDispacthToProps用于传递操作状态的方法
 */
 function mapDispacthToProps(dispatch) {
-    // UI组件只要调用jia函数，就会接收到number(它是要加的那个数字)，然后就会通知redux传递action对象(也就是type和data的值)
+    // UI组件只要调用mapDispacthToProps函数，就会接收到number(它是要加的那个数字)，然后就会通知redux传递action对象(也就是type和data的值)
     return {
         // 通知redux执行加法
         jia:number=>dispatch(createIncrementAction(number)),
