@@ -19,6 +19,7 @@ export default class Count extends Component {
     
     // 加法
     increment=()=>{
+        //获取用户选择的数字 
         const {value}=this.selectNumber
         store.dispatch(createIncrementAction(value*1))
     }

@@ -3,9 +3,15 @@
 */
 
 // 引入createStore，专门用于创建redux中最为核心的store对象
-import {createStore} from 'redux'
+    // 引入redux-thunk后，引入名为applyMiddleware的中间件，中文叫执行中间件
+import {createStore,applyMiddleware} from 'redux'
 // 引入为Count组件服务的reducer
 import countReducer from './count_reducers'
-// 暴露store
-export default createStore(countReducer)
+// 引入redux-thunk，用于store接收函数类型的action，并执行里面的异步任务
+import thunk from 'redux-thunk'
+// 暴露store，applyMiddleware必须作为createStore的第二个参数传递进去，且applyMiddleWare也是函数，调用时需要把thunk作为参数传递进去
+export default createStore(countReducer,applyMiddleware(thunk))
+
+
+// 若给store传递的action是一般类型的对象，那store就把action交给reducers来处理；若给store传递的是函数，那store就会调用，再把里面的异步任务交给reducers
 

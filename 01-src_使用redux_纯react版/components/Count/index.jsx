@@ -6,6 +6,7 @@ export default class Count extends Component {
     
     // 加法
     increment=()=>{
+        //获取用户选择的数字 
         const {value}=this.selectNumber
         const {count}=this.state
         this.setState({count:count+value*1})
