@@ -9,29 +9,31 @@ export default class Count extends Component {
     increment=()=>{
         //获取用户选择的数字 
         const {value}=this.selectNumber
-        
+        this.props.jia(value*1)
     }
     // 减法
     decrement=()=>{
       const {value}=this.selectNumber
-      
+      this.props.jian(value*1)
     }
     // 当前求和为奇数时加
     incrementIfOdd=()=>{
         const {value}=this.selectNumber
-        
+        if (this.props.count %2 !== 0) {
+          this.props.jia(value*1)
+        }
     }
     // 异步加
     incrementIfAsync=()=>{
         const {value}=this.selectNumber
-        
+        this.props.jiaAsync(value*1,500)
     }
 
   render() {
-    console.log('UI组件接收到的props是',this.props);
+    // console.log('UI组件接收到的props是',this.props);
     return (
       <div>
-        <h1>当前求和为：???</h1>
+        <h1>当前求和为：{this.props.count}</h1>
         <select ref={c=>this.selectNumber=c}>
             <option value="1">1</option>
             <option value="2">2</option>
