@@ -41,4 +41,18 @@
 * 3. 备注1：容器组件中的store是靠props传递进UI组件里的，而不是在容器组件中直接引入
 * 4. 备注2：mapDispacthToProps，也可以是一个对象，是对象时简写；是函数时就是一般写法
 
-## 五、
+## 五、求和案例_react-redux优化
+* 1. 容器组件和UI组件混成一个文件
+* 2. 无需自己给容器组件传递store，给<App/>包裹一个<Provider store={store}>即可
+* 3. 使用了react-redux后也不用再自己检测redux中状态的改变了，容器组件可以自动完成这个工作
+* 4. mapDispatchToProps也可以简单的写成一个对象
+* 5. 一个组件要和redux“打交道”要经过哪几步？
+    * 定义好UI组件---不暴露
+    * 引入connect生成一个容器组件，并暴露，写法如下：
+        * ```
+            connect(
+                state=>({key:value})
+                {key:xxxxxxAction}
+            )(UI组件)
+          ```
+    * 在UI组件中通过this.props.xxxxxx读取和操作状态
