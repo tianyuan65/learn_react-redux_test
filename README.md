@@ -42,7 +42,7 @@
 * 4. 备注2：mapDispacthToProps，也可以是一个对象，是对象时简写；是函数时就是一般写法
 
 ## 五、求和案例_react-redux优化
-* 1. 容器组件和UI组件混成一个文件
+* 1. 容器组件和UI组件整合成一个文件
 * 2. 无需自己给容器组件传递store，给<App/>包裹一个<Provider store={store}>即可
 * 3. 使用了react-redux后也不用再自己检测redux中状态的改变了，容器组件可以自动完成这个工作
 * 4. mapDispatchToProps也可以简单的写成一个对象
