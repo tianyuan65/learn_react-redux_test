@@ -47,12 +47,14 @@
 * 3. 使用了react-redux后也不用再自己检测redux中状态的改变了，容器组件可以自动完成这个工作
 * 4. mapDispatchToProps也可以简单的写成一个对象
 * 5. 一个组件要和redux“打交道”要经过哪几步？
-    * 定义好UI组件---不暴露
-    * 引入connect生成一个容器组件，并暴露，写法如下：
+    * (1) 定义好UI组件---不暴露
+    * (2) 引入connect生成一个容器组件，并暴露，写法如下：
         * ```
             connect(
-                state=>({key:value})
-                {key:xxxxxxAction}
+                state=>({key:value}),  //映射状态
+                {key:xxxxxxAction}  //映射操作状态的方法
             )(UI组件)
           ```
-    * 在UI组件中通过this.props.xxxxxx读取和操作状态
+    * (3) 在UI组件中通过this.props.xxxxxx读取和操作状态
+
+## 六、

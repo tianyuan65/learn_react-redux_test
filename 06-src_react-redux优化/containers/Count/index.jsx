@@ -42,6 +42,7 @@ class Count extends Component {
     // console.log('UI组件接收到的props是',this.props);
     return (
       <div>
+        {/* 读取状态 */}
         <h1>当前求和为：{this.props.count}</h1>
         <select ref={c=>this.selectNumber=c}>
             <option value="1">1</option>
@@ -61,6 +62,7 @@ class Count extends Component {
 // 使用connect()()，创建并暴露一个Count容器组件，connect函数再一次调用时，就可以接到容器组件(CountContainer)，传入Count的UI组件作为参数，就会把UI组件和容器组件联系起来(这是固定写法)
 // connect在第一次调用时需要传入两个参数，且这两个参数必须都是函数，作用就是传递状态
 export default connect(
+    // 这个state就是redux帮我保存的状态
     state=> ({count:state}),
 
     // mapDispatchToProps的一般写法
