@@ -57,4 +57,14 @@
           ```
     * (3) 在UI组件中通过this.props.xxxxxx读取和操作状态
 
-## 六、
+## 六、求和案例_react-redux数据共享版
+* 1. 定义一个Person组件，和Count组件通过redux共享数据
+* 2. 为Person这一件编写：reducer、action，配合constant常量
+* 3. 重点：Person的reducer和Count的Reducer要使用combineReducers进行合并，合并后的总状态是一个对象
+* 4. 交给store的总reducer，最后主义在组件中去除状态的时候，记得要“取到位”
+
+## 七、求和案例_react-redux开发者工具的使用
+* 1. npm i --save-dev redux-devtools-extension
+* 2. store中进行配置
+    * import {composeWithDevTools} from 'redux-devtools-extension'
+    * const store=createStore(allReducer,composeWithDevTools(applyMiddleware(thunk)))
